@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Use this to get another shell on a running container (see the "run"
+# script)
+
+docker exec -it coad bash

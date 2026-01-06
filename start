@@ -1,0 +1,3 @@
+UIDGID="$(id -u):$(id -g)"
+docker compose run --name coad --service-ports --rm --user "$UIDGID" coad bash
+
