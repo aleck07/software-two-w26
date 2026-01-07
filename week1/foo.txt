@@ -1,0 +1,2 @@
+this is some foo text
+more foo text

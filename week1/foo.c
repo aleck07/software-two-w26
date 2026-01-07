@@ -16,7 +16,7 @@ int main(void)
     //   O_TRUNC:  truncate the file if it does exist
     //
     // 0600: If the file is created, give it these permissions: rw-------
-    fd = open("/foo.txt", O_WRONLY|O_CREAT|O_TRUNC, 0600);
+    fd = open("./foo.txt", O_RDONLY);
 
     if (fd == -1) {
         // If the open fails, print out an error message prepended with
@@ -24,12 +24,13 @@ int main(void)
         perror("open");
         return 1;  // Exit with error code 1
     }
+
     char buf[128];  // 128-byte buffer
 
     // Read *up to* 128 bytes from stdin (0)
-    int bytes_read = read(3, buf, 128);
+    int bytes_read = read(fd, buf, 128);
     // Write 14 bytes to the file
-    write(1, "Hello, world!\n", 14);
+    write(1, buf, bytes_read);
 
     // Close the file when done
     close(fd);
