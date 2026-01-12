@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   post "/products", to: "products#create"
   get "/products/:id", to: "products#show"
   get "/blog/:title", to: "blog#show"
+  
+  root "products#index"
+  resources :products
 end
