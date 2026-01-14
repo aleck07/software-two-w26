@@ -14,6 +14,7 @@ class Email
   end
 end
 
+# Add logging email functionality here by subclassing Email and overriding the send method
 class LoggingEmail < Email
   def send(to)
     log(to, @headers)
