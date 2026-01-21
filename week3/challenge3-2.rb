@@ -1,8 +1,8 @@
 class Account
   attr_accessor :account_balance
 
-  def initialize(balance = 0)
-    @account_balance = balance
+  def initialize()
+    @account_balance = my_real_life_account_balance
   end
 
   def increase(amount)
@@ -14,7 +14,7 @@ class Account
   end
 end
 
-$account = Account.new(0)
+$account = Account.new()
 
 class Foo
   def increase_balance()
