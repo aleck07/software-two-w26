@@ -8,8 +8,7 @@ end
 
 # def horizontal_line(y_pos, color = "blue")
 def horizontal_line(y_pos)
-  set_color("blue")
-  draw_line(0, y_pos, 100, y_pos)
+  horizontal_line_color(y_pos, "blue")
 end
 
 def horizontal_line_color(y_pos, color)
