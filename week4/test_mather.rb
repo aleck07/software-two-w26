@@ -19,6 +19,9 @@ class TestMather < Minitest::Test
     
     m = Mather.new(5, 2)
     assert_equal(2.5, m.quotient)
+
+    m = Mather.new(5, 0)
+    assert_raises(ZeroDivisionError) { m.quotient }    
   end
 
 end
