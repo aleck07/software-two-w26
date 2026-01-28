@@ -19,6 +19,16 @@ class RequestWrapper
     end
 end
 
+class FakeRequestWrapper
+  def initialize(assertValue = nil)
+      @assertValue = assertValue
+  end
+
+  def do_thing()
+    @assertValue
+  end
+end
+
 if __FILE__ == $0
   # Run this stuff if this file is executed directly
   # but not if it is `require`d
@@ -27,10 +37,9 @@ if __FILE__ == $0
 
   req = Net::HTTP::Get.new('http://example.com/')
   wrapper = RequestWrapper.new(req)
-  pp wrapper.do_thing(req)   # nil
+  pp wrapper.do_thing()   # nil
 
-  req = Net::HTTP::Get.new('http://example.com/',
+  req = Net::HTTP::Get.new('http://example.com/', {"x-special-header" => "Yes"})
   wrapper = RequestWrapper.new(req)
-    {"x-special-header" => "Yes"})
-  pp wrapper.do_thing(req)   # "OK"
+  pp wrapper.do_thing()   # "OK"
 end

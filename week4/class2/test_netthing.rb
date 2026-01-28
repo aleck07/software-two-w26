@@ -16,7 +16,7 @@ class NetThingTest < Minitest::Test
     nt = NetThing.new
     # DON'T WANT TO MAKE A REAL REQUEST HERE
     #req = Net::HTTP::Get.new('http://example.com/')
-    req = FakeRequest.new()
+    req = FakeRequestWrapper.new()
     result = nt.do_thing(req)
     assert result == nil
   end
@@ -26,7 +26,7 @@ class NetThingTest < Minitest::Test
     # DON'T WANT TO MAKE A REAL REQUEST HERE
     #req = Net::HTTP::Get.new('http://example.com/',
     #  {"x-special-header" => "Yes"})
-    req = FakeRequest.new({"x-special-header" => "Yes"})
+    req = FakeRequestWrapper.new("OK")
     result = nt.do_thing(req)
     assert result == "OK"
   end
