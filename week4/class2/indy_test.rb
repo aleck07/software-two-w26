@@ -32,4 +32,4 @@ class IndyTest < Minitest::Test
 end
 
 # The code failed half the time and passed the other times is because ruby automatically runs tests in different orders, to expose problems like this.
-# Proverb: "Thou shalt not share state between tests."
+# Proverb: "Each test should leave the campsite (system) as it found it. lol"
