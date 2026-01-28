@@ -6,7 +6,7 @@ require_relative 'adder'
 # For the challenge, don't modify anything in the AdderTest class:
 class AdderThing
   def very_expensive_method
-    puts "Skipping very_expensive_method"
+    puts "Not so expensive anymore!"
   end
 end
 
