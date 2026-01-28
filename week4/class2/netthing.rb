@@ -37,9 +37,9 @@ if __FILE__ == $0
 
   req = Net::HTTP::Get.new('http://example.com/')
   wrapper = RequestWrapper.new(req)
-  pp wrapper.do_thing()   # nil
+  pp nt.do_thing(wrapper)   # nil
 
   req = Net::HTTP::Get.new('http://example.com/', {"x-special-header" => "Yes"})
   wrapper = RequestWrapper.new(req)
-  pp wrapper.do_thing()   # "OK"
+  pp nt.do_thing(wrapper)   # "OK"
 end
