@@ -1,20 +1,38 @@
 require_relative "notebook.rb"
 require "minitest/autorun"
 
+class FakeDatabase
+  def initialize
+    @records = []
+  end
+
+  def append(record)
+    @records << record
+  end
+
+  def record_count
+    @records.length
+  end
+
+  def record_get_all
+    @records
+  end
+end
+
 class TestNotebook < Minitest::Test
 
   def test_empty_notebook
-    nb = Notebook.new("test notebook")
+    nb = Notebook.new("test notebook", FakeDatabase.new)
     assert_equal(nb.count_entries, 0)
   end
 
   def test_notebook_name
-    nb = Notebook.new("test notebook")
+    nb = Notebook.new("test notebook", FakeDatabase.new)
     assert_equal(nb.name, "test notebook")
   end
 
   def test_single_entry_notebook
-    nb = Notebook.new("test notebook")
+    nb = Notebook.new("test notebook" , FakeDatabase.new)
     assert_equal(nb.count_entries, 0)
     nb.add_entry("entry 0")
     assert_equal(nb.count_entries, 1)
@@ -23,7 +41,7 @@ class TestNotebook < Minitest::Test
   end
 
   def test_multi_entry_notebook
-    nb = Notebook.new("test notebook")
+    nb = Notebook.new("test notebook", FakeDatabase.new)
     assert_equal(nb.count_entries, 0)
     nb.add_entry("entry 0")
     nb.add_entry("entry 1")
