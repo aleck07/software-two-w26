@@ -1,7 +1,7 @@
 require_relative "notebook.rb"
-require "test/unit"
+require "minitest/autorun"
 
-class TestNotebook < Test::Unit::TestCase
+class TestNotebook < Minitest::Test
 
   def test_empty_notebook
     nb = Notebook.new("test notebook")
