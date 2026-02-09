@@ -1,16 +1,14 @@
 require_relative "kitchensink.rb"
-require "test/unit"
+require "minitest/autorun"
 
-class TestKitchenSink < Test::Unit::TestCase
+class TestKitchenSink < Minitest::Test
 
   def test_triangle_area
-    k = KitchenSink.new
-    # How on Earth do we test triangle_area?
-    #
-    # Refactor KitchenSink so you can test that the output is correct.
-    #
-    # And we still want to call this method in the test:
+    fake_keyboard = FakeKeyboard.new(["10", "5"])
+    fake_screen = FakeScreen.new
+    k = FakeKitchenSink.new(fake_keyboard, fake_screen)
     k.triangle_area
+    assert_equal("The area is 25.0\n", fake_screen.output)
   end
 
 end
