@@ -9,19 +9,19 @@ end
 class AntelopeClassifier
   def classify(antelope_type)
     # ... lots more code ...
-    Production.do_antelope_production
+    do_antelope_production
     # ... lots more code ...
     antelope_type * 698
   end
 
-  def classify_with_fake(antelope_type)
-    antelope_type * 698
+  def do_antelope_production
+    Production.do_antelope_production
   end
 end
 
 class FakeAntelopeClassifier < AntelopeClassifier
-  def classify(antelope_type)
-    classify_with_fake(antelope_type)
+  def do_antelope_production
+    # no-op in tests
   end
 end
 
