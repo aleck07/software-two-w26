@@ -9,6 +9,8 @@ class AntelopeComputer
   end
 end
 
+# All the references to @ac have to be removed in the class because everytime we reference the computation result from @ac, it will trigger the computation in AntelopeComputer with the sleep, not our cached computation.
+
 class AntelopeClassifier
   def initialize
     # no-op
