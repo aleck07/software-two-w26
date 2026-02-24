@@ -1,5 +1,23 @@
 class AnimalList
   def initialize
+    raise "abstract class"
+  end
+
+  def add_animal(a)
+    raise "abstract method"
+  end
+
+  def find_animal(a)
+    raise "abstract method"
+  end
+
+  def delete_animal(a)
+    raise "abstract method"
+  end
+end
+
+class ProductionAnimalList < AnimalList
+  def initialize
     sleep(3)
     @list = []
   end
@@ -25,22 +43,22 @@ end
 
 if __FILE__ == $0
   # PRODUCTION CODE:
-  aimfiz = AnimalList.new
+  aimfiz = ProductionAnimalList.new
   aimfiz.add_animal("dog");
 
-  bekdab = AnimalList.new
+  bekdab = ProductionAnimalList.new
   bekdab.add_animal("dog");
   bekdab.add_animal("cat");
   x = bekdab.find_animal("cat");
   bekdab.delete_animal("cat");
 
-  malyon = AnimalList.new
+  malyon = ProductionAnimalList.new
 
-  plugh = AnimalList.new
+  plugh = ProductionAnimalList.new
 
-  throck = AnimalList.new
+  throck = ProductionAnimalList.new
 
-  vomin = AnimalList.new
+  vomin = ProductionAnimalList.new
 
-  zemdor = AnimalList.new
+  zemdor = ProductionAnimalList.new
 end

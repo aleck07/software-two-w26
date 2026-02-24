@@ -1,9 +1,30 @@
 require 'minitest/autorun'
-require_relative 'problem'
+require_relative 'animallist'
+
+class FakeProductionAnimalList
+  def initialize
+    @list = []
+  end
+
+  def add_animal(a)
+    @list.append(a)
+    "ok"
+  end
+
+  def find_animal(a)
+    i = @list.find_index(a)
+    i == nil ? nil : @list[i]
+  end
+
+  def delete_animal(a)
+    @list.delete(a)
+    "deleted"
+  end
+end
 
 class TestAnimalList < Minitest::Test
   def setup
-    @al = AnimalList.new
+    @al = FakeProductionAnimalList.new
   end
 
   def test_add_animal
