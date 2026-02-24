@@ -1,4 +1,22 @@
-class AnimalList
+class AnimalListInterface
+  def initialize
+    raise NotImplementedError
+  end
+
+  def add_animal(a)
+    raise NotImplementedError
+  end
+
+  def find_animal(a)
+    raise NotImplementedError
+  end
+
+  def delete_animal(a)
+    raise NotImplementedError
+  end
+end
+
+class AnimalList < AnimalListInterface
   def initialize
     sleep(3)
     @list = []
